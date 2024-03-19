@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Coding Challenge 5
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: lightseagreen;
+        }
+    </style>
+</head>
+<body>
+    <h1> Modified FLAMES </h1>
+
+    <button onclick="flames()">Match Names</button>
+    <h3 id="name"></h3>
+
+    <h4>FLAMES Result:</h4>
+    <h3 id="result"></h3>
+
+
+    <script>
+        function flames() {
+            let name1 = prompt("Enter your name:").toUpperCase();
+            let name2 = prompt("Enter your partner's name:").toUpperCase();
+
+            document.getElementById("name").innerHTML = `Names: ${name1} & ${name2}`;
+
+            let combinedName = removeSpecialCharacters(name1 + name2);
+
+            let totalChars = combinedName.length;
+
+            let flamesIndex = totalChars % "FLAMES".length;
+
+            let flamesMeanings = {
+                F: "Friends",
+                L: "Lovers",
+                A: "Acquaintances",
+                M: "Marriage",
+                E: "Enemies",
+                S: "Sweethearts"
+            };
+
+            let currentFlame = "FLAMES"[flamesIndex];
+
+            document.getElementById("result").innerHTML = `FLAMES Result: ${flamesMeanings[currentFlame]}`;
+        }
+
+        function removeSpecialCharacters(str) {
+            return str.replace(/[^a-zA-Z]/g, "");
+        }
+    </script>
+</body>
+</html
